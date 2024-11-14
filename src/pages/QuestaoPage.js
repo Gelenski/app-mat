@@ -408,7 +408,7 @@ const QuestaoPage = () => {
       )}
                      {/* ---------------- Cosseno -------------------- */}
 
-                     {topico === "cosseno" && (
+                     {topico === "Cosseno" && (
         <>
           <Card className="mb-3 shadow-sm">
             <Card.Body>
@@ -548,7 +548,250 @@ const QuestaoPage = () => {
             </Card.Body>
           </Card>       
         </>
-      )}
+      )} {/* ---------------- Soma de PA e PG -------------------- */}
+      {topico === "Soma de PA e PG" && (
+              <>
+                <Card className="mb-3 shadow-sm">
+                  <Card.Body>
+                    <Card.Title>Em uma Progressão Aritmética (PA), o primeiro termo é 5 e a razão é 3. Determine a soma dos 10 primeiros termos dessa PA.
+      
+      
+                    </Card.Title>
+                    <Button
+                      variant="info"
+                      onClick={() => toggleSolucao(16)}
+                      className="mt-2"
+                    >
+                      {mostraSolucao[16] ? "Ocultar Solução" : "Mostrar Solução"}
+                    </Button>
+                    {mostraSolucao[16] && (
+                      <Card.Text className="mt-3 text-muted">
+                        Dados:{<br/>}
+      - Primeiro termo (a1) = 5  {<br/>}
+      - Razão (r) = 3 {<br/>} 
+      - Número de termos (n) = 10{<br/>}  
+      {<br/>}{<br/>}
+      A fórmula do termo geral de uma PA é:
+      {<br/>}
+      an = a1 + (n - 1) . r
+      {<br/>}{<br/>}
+      Resolução:{<br/>}
+      a10 = 5 + (10 - 1) . 3={<br/>}
+      a10 = 5 + (9) . 3={<br/>}
+      a10 = 5 + 27={<br/>}
+      a10 = 32{<br/>}
+      {<br/>}{<br/>}
+      Calculando a Soma da PA:
+      {<br/>}{<br/>}
+      A fórmula para a soma da PA é:
+      {<br/>}{<br/>}
+      Sn = n/2 . (a1 + an)
+      {<br/>}{<br/>}
+      Resolução:{<br/>}
+      Sn = 10/2 . (5 + 32)= {<br/>}
+      Sn = 5 . (37)={<br/>}
+      Sn = 185{<br/>}
+      {<br/>}
+         
+      Resposta: A soma dos 10 primeiros termos é 185.
+      
+      
+                         
+                      </Card.Text>
+                    )}
+                  </Card.Body>
+                </Card>
+      
+                <Card className="mb-3 shadow-sm">
+                  <Card.Body>
+                    <Card.Title>Em uma Progressão Geométrica (PG), o primeiro termo é 2 e a razão é 4. Calcule a soma dos 6 primeiros termos dessa PG.</Card.Title>
+                    <Button
+                      variant="info"
+                      onClick={() => toggleSolucao(17)}
+                      className="mt-2"
+                    >
+                      {mostraSolucao[17] ? "Ocultar Solução" : "Mostrar Solução"}
+                    </Button>
+                    {mostraSolucao[17] && (
+                      <Card.Text className="mt-3 text-muted">
+                        Dados:{<br/>}
+      - Primeiro termo (a1) = 2{<br/>}
+      - Razão (q) = 4{<br/>}  
+      - Número de termos (n) = 6{<br/>}  
+      {<br/>}{<br/>}
+      A fórmula para a soma da PG é:
+      {<br/>}{<br/>}
+      Sn = a1 . (qⁿ - 1){<br/>}
+               -------------------{<br/>}
+               ㅤㅤ q - 1{<br/>}
+                     {<br/>}
+      Resolução:{<br/>}{<br/>}
+      ㅤㅤ2 . (4⁶ - 1){<br/>}
+      S6 = -------------   ={<br/>}
+      ㅤㅤㅤ4 - 1{<br/>}{<br/>}
+              4⁶ = 4096 {<br/>}4096 - 1 = 4095{<br/>}{<br/>}
+      
+              ㅤㅤㅤ2 . (4095){<br/>}
+      S6 = ------------ ={<br/>}
+      ㅤㅤㅤㅤ3{<br/>}
+      ㅤㅤㅤ8190{<br/>}
+      S6 = ------------ ={<br/>}
+      ㅤㅤㅤㅤ3{<br/>}
+      S6 = 2730{<br/>}
+      {<br/>}{<br/>}
+      Resposta: A soma dos 6 primeiros termos é 2730.
+      
+      
+                       
+                        
+                      </Card.Text>
+                    )}
+                  </Card.Body>
+                </Card>
+      
+                
+                  
+                   
+              </>
+            )}
+      
+      {/* ---------------- Cotangente, Cossecante, Secante -------------------- */}
+      {topico === "Cotangente, Cossecante, Secante" && (
+              <>
+                <Card className="mb-3 shadow-sm">
+                  <Card.Body>
+                    <Card.Title>Calcule o valor de cot(0) para um ângulo 0 = 45°
+      
+      
+                    </Card.Title>
+                    <Button
+                      variant="info"
+                      onClick={() => toggleSolucao(18)}
+                      className="mt-2"
+                    >
+                      {mostraSolucao[18] ? "Ocultar Solução" : "Mostrar Solução"}
+                    </Button>
+                    {mostraSolucao[18] && (
+                      <Card.Text className="mt-3 text-muted">
+                        Resolução:{<br/>}
+      
+                        cot(0) = 1{<br/>}
+               -------------{<br/>}
+               ㅤ tan(0){<br/>}{<br/>}
+      
+      tan(45°) = 1{<br/>}{<br/>}
+      
+      cot(45°) = 1 {<br/>}
+      ㅤㅤㅤㅤ----- = 1
+      {<br/>} 
+      ㅤㅤㅤㅤㅤ1 {<br/>}{<br/>}
+      
+      Resposta: cot(45°) é 1.{<br/>}{<br/>}
+      
+      
+      
+                         
+                      </Card.Text>
+                    )}
+                  </Card.Body>
+                </Card>
+      
+                <Card className="mb-3 shadow-sm">
+                  <Card.Body>
+                    <Card.Title>Calcule o valor de sec(0) para um ângulo 0 = 30°
+      
+      
+                    </Card.Title>
+                    <Button
+                      variant="info"
+                      onClick={() => toggleSolucao(19)}
+                      className="mt-2"
+                    >
+                      {mostraSolucao[19] ? "Ocultar Solução" : "Mostrar Solução"}
+                    </Button>
+                    {mostraSolucao[19] && (
+                      <Card.Text className="mt-3 text-muted">
+                        Resolução:{<br/>}
+      
+                        sec(0) = 1{<br/>}
+                 -----------{<br/>}
+                 ㅤ cos(0){<br/>}{<br/>}
+      
+      cos(30°) = √3{<br/>}
+      ㅤㅤㅤㅤ-------{<br/>}
+      ㅤㅤㅤㅤㅤ 2{<br/>}{<br/>}
+      
+      sec(30°) = 1 {<br/>}
+      ㅤㅤㅤㅤ-----{<br/>}
+      ㅤㅤㅤ  √3 / 2{<br/>}{<br/>}
+      
+      sec(30°) = 2      = 2√3{<br/>}
+      ㅤㅤㅤ   ------   ------{<br/>}
+      ㅤㅤㅤ √3          ㅤㅤ3{<br/>}{<br/>}
+      
+      Resposta: sec(30°) = 2√3{<br/>}
+      ㅤㅤㅤㅤㅤㅤㅤㅤ--------{<br/>}
+      ㅤㅤㅤㅤㅤㅤㅤㅤㅤ 3{<br/>}
+      
+      
+      
+      
+                         
+                      </Card.Text>
+                    )}
+                  </Card.Body>
+                </Card>
+      
+                <Card className="mb-3 shadow-sm">
+                  <Card.Body>
+                    <Card.Title>Calcule o valor de csc(0) para um ângulo 0 = 60°
+      
+      
+                    </Card.Title>
+                    <Button
+                      variant="info"
+                      onClick={() => toggleSolucao(20)}
+                      className="mt-2"
+                    >
+                      {mostraSolucao[20] ? "Ocultar Solução" : "Mostrar Solução"}
+                    </Button>
+                    {mostraSolucao[20] && (
+                      <Card.Text className="mt-3 text-muted">
+                        Resolução:{<br/>}
+      
+      csc(0) = 1{<br/>}
+      ㅤㅤㅤ-----{<br/>}
+      ㅤㅤㅤsin(0){<br/>}{<br/>}
+      
+      sin(60°) = √3{<br/>}
+      ㅤㅤㅤㅤ-----{<br/>}
+      ㅤㅤㅤㅤㅤ2{<br/>}{<br/>}
+      
+      csc(60°) = 1{<br/>}
+      ㅤㅤㅤㅤ------{<br/>}
+      ㅤㅤㅤㅤ√3 / 2{<br/>}{<br/>}
+      
+      csc(60°) = 2      =  2√3{<br/>}
+      ㅤㅤㅤㅤ----        ㅤ-----{<br/>}
+      ㅤㅤㅤㅤ√3      ㅤㅤ     3{<br/>}{<br/>}
+      
+      Resposta: csc(60°) =   2√3{<br/>}
+      ㅤㅤㅤㅤㅤㅤㅤㅤㅤ-----{<br/>}
+      ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ3
+      
+      
+      
+      
+                         
+                      </Card.Text>
+                    )}
+                  </Card.Body>
+                </Card>
+                  
+                   
+              </>
+            )}
+      {/* ---------------- Apartir de agr já não é mais meu pronlema -------------------- */}
     </Container>
     
   );
