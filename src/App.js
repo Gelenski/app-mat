@@ -7,8 +7,9 @@ import { HouseFill, Book } from "react-bootstrap-icons";
 
 // Lista dos conteúdos.
 const conteudos = [
-  { nome: "Adição e Subtração", path: "adicao-subtracao" },
-  { nome: "Multiplicação e Divisão", path: "multiplicacao-divisao" },
+  {nome: "Progressão Geométrica", path:"progressao-geometrica"},
+  {nome: "Logaritmo", path: "logaritmo"},
+  {nome: "Cosseno", path: "cosseno"}
 ];
 
 function App() {

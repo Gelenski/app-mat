@@ -6,8 +6,9 @@ import { List } from "react-bootstrap-icons";
 function NavbarComponent() {
   const location = useLocation();
   const conteudos = [
-    { nome: "Adição e Subtração", path: "adicao-subtracao" },
-    { nome: "Multiplicação e Divisão", path: "multiplicacao-divisao" },
+    {nome: "Progressão Geométrica", path:"progressao-geometrica"},
+    {nome: "Logaritmo", path: "logaritmo"},
+    {nome: "Cosseno", path: "cosseno"}
   ];
 
   return (

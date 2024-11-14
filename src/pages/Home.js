@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { Card, Container, Row, Col } from "react-bootstrap";
 
 const conteudos = [
-  { nome: "Adição e Subtração", path: "adicao-subtracao" },
-  { nome: "Multiplicação e Divisão", path: "multiplicacao-divisao" },
+  {nome: "Progressão Geométrica", path:"progressao-geometrica"},
+  {nome: "Logaritmo", path: "logaritmo"}
 ];
 
 const Home = () => (
