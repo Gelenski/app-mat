@@ -4,7 +4,10 @@ import { Card, Container, Row, Col } from "react-bootstrap";
 
 const conteudos = [
   {nome: "Progressão Geométrica", path:"progressao-geometrica"},
-  {nome: "Logaritmo", path: "logaritmo"}
+  {nome: "Logaritmo", path: "logaritmo"},
+  {nome: "Soma de PA e PG", path: "Soma de PA e PG"},
+  {nome: "Cosseno", path: "Cosseno"},
+  {nome: "Cotangente, Cossecante, Secante", path: "Cotangente, Cossecante, Secante"}
 ];
 
 const Home = () => (
