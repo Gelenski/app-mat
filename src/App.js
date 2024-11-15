@@ -9,7 +9,10 @@ import { HouseFill, Book } from "react-bootstrap-icons";
 const conteudos = [
   {nome: "Progressão Geométrica", path:"progressao-geometrica"},
   {nome: "Logaritmo", path: "logaritmo"},
-  {nome: "Cosseno", path: "cosseno"}
+  {nome: "Cosseno", path: "Cosseno"},
+  {nome: "Soma de PA e PG", path: "Soma de PA e PG"},
+ //arrumar o codigo 
+  // {nome: "Cotangente, Cossecante, Secante", path: "Cotangente, Cossecante, Secante"}
 ];
 
 function App() {
