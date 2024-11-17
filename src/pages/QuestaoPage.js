@@ -596,32 +596,142 @@ const QuestaoPage = () => {
           </Card>
         </>
       )}
-      {/* ---------------- Conversâo de unidade -------------------- */}
-      {topico === "Conversão de unidade" && (
+      {/* ---------------- Função Exponencial -------------------- */}
+      {topico === "Função Exponencial" && (
         <>
           <Card className="mb-3 shadow-sm">
             <Card.Body>
               <Card.Title>
-                Uma estrada tem 120 km de comprimento. Um carro viaja por essa estrada a uma velocidade constante de 80
-                km/h. Converta essa distância para metros e a velocidade para metros por segundo (m/s). Em seguida,
-                calcule quanto tempo o carro levará para percorrer toda a estrada em segundos.
+                1. Uma população de bactérias cresce exponencialmente de acordo com a função 𝑃 ( 𝑡 ) = 200 ⋅ 2 𝑡
+                P(t)=200⋅2 t , onde 𝑡 t é o tempo em horas. <br />
+                Qual será a população de bactérias após 3 horas?
               </Card.Title>
               <Button variant="info" onClick={() => toggleSolucao(21)} className="mt-2">
                 {mostraSolucao[21] ? "Ocultar Solução" : "Mostrar Solução"}
               </Button>
               {mostraSolucao[21] && (
                 <Card.Text className="mt-3 text-muted">
-                  1. Conversão da distância de quilômetros (km) para metros (m):{<br />}
-                  Sabemos que 1 km = 1.000 m.{<br />}
-                  120km= 120x1.000 = 120.000m{<br />}
-                  2. Conversão da velocidade de quilômetros por hora (km/h) para metros por segundo (m/s):{<br />}
-                  Sabemos que para converter km/h para m/s, dividimos o valor por 3,6, já que 1 km/h = {<br />}
-                  1.000/3.600m/s{<br />}
-                  80km/h = 80 / 3,6 = 22,22m/s{<br />}
-                  3. Cálculo do tempo em segundos:{<br />}
-                  Sabemos que o tempo é dado pela fórmula:{<br />}t = 120.000m / 22,22m/s = 5.400 segundos{<br />}
-                  Resposta final:{<br />}O carro levará aproximadamente 5.400 segundos para percorrer toda a estrada.
-                  {<br />}
+                  Substituindo t=3 na função:
+                  <br /> P(3) = 200 ⋅ 2³
+                  <br /> P(3)=200 ⋅ 8 <br />
+                  P(3) = 1600
+                  <br /> Após 3 horas, a população de bactérias será de 1600 bactérias.
+                </Card.Text>
+              )}
+            </Card.Body>
+          </Card>
+          <Card className="mb-3 shadow-sm">
+            <Card.Body>
+              <Card.Title>
+                2. Um certo produto químico decai exponencialmente de acordo com a função Q(t) = Q<sub>0</sub> &middot;
+                e<sup>-0,1t</sup>, onde Q<sub>0</sub> é a quantidade inicial do produto e t é o tempo em horas. Sabendo
+                que a quantidade inicial é de 100 mg, qual será a quantidade restante após 10 horas?
+                <br />
+              </Card.Title>
+              <Button variant="info" onClick={() => toggleSolucao(22)} className="mt-2">
+                {mostraSolucao[22] ? "Ocultar Solução" : "Mostrar Solução"}
+              </Button>
+              {mostraSolucao[22] && (
+                <Card.Text className="mt-3 text-muted">
+                  Substituindo Q<sub>0</sub> = 100 e t = 10:
+                  <br />
+                  Q(10) = 100 &middot; e<sup>-0,1 &middot; 10</sup>
+                  <br />
+                  Q(10) = 100 &middot; e<sup>-1</sup>
+                  <br />
+                  Q(10) = 100 &middot; 0,3679
+                  <br />
+                  Q(10) = 36,79
+                  <br />
+                  Após 10 horas, restarão aproximadamente 36,79 mg do produto químico.
+                </Card.Text>
+              )}
+            </Card.Body>
+          </Card>
+          <Card className="mb-3 shadow-sm">
+            <Card.Body>
+              <Card.Title>
+                3. Um remédio no corpo de uma pessoa se decompõe a uma taxa de 30% a cada hora. Se a quantidade inicial
+                de remédio é 200 mg, escreva a função que descreve a quantidade de remédio ao longo do tempo e calcule a
+                quantidade que restará após 3 horas.
+                <br />
+              </Card.Title>
+              <Button variant="info" onClick={() => toggleSolucao(23)} className="mt-2">
+                {mostraSolucao[23] ? "Ocultar Solução" : "Mostrar Solução"}
+              </Button>
+              {mostraSolucao[23] && (
+                <Card.Text className="mt-3 text-muted">
+                  A função que descreve a quantidade de remédio é:
+                  <br />
+                  Q(t) = 200 &middot; (0,7)<sup>t</sup>
+                  <br />
+                  Para t = 3:
+                  <br />
+                  Q(3) = 200 &middot; (0,7)<sup>3</sup>
+                  <br />
+                  Q(3) = 200 &middot; 0,343
+                  <br />
+                  Q(3) = 68,6
+                  <br />
+                  Após 3 horas, restarão aproximadamente 68,6 mg de remédio no corpo.
+                </Card.Text>
+              )}
+            </Card.Body>
+          </Card>
+          <Card className="mb-3 shadow-sm">
+            <Card.Body>
+              <Card.Title>
+                4. O valor de um carro se deprecia 15% ao ano. Se o valor inicial do carro é de R$40.000,00; escreva a
+                função exponencial que descreve o valor do carro ao longo do tempo e calcule se valor após 5 anos.
+                <br />
+              </Card.Title>
+              <Button variant="info" onClick={() => toggleSolucao(24)} className="mt-2">
+                {mostraSolucao[24] ? "Ocultar Solução" : "Mostrar Solução"}
+              </Button>
+              {mostraSolucao[24] && (
+                <Card.Text className="mt-3 text-muted">
+                  A função exponencial que descreve o valor do carro ao longo desse período é:
+                  <br />
+                  V(t) = 40000 &middot; (0,85)<sup>t</sup>
+                  <br />
+                  Substituindo t = 5:
+                  <br />
+                  V(5) = 40000 &middot; (0,85)<sup>5</sup>
+                  <br />
+                  V(5) = 40000 &middot; 0,4437
+                  <br />
+                  V(5) = 17748
+                  <br />
+                  Após 5 anos, o valor do carro será de aproximadamente R$17.748,00.
+                </Card.Text>
+              )}
+            </Card.Body>
+          </Card>
+          <Card className="mb-3 shadow-sm">
+            <Card.Body>
+              <Card.Title>
+                5. Uma cidade tem uma população inicial de 50.000 habitantes e cresce a uma taxa de 4% ao ano. Escreva a
+                função que representa o crescimento dessa cidade daqui à 8 anos.
+                <br />
+              </Card.Title>
+              <Button variant="info" onClick={() => toggleSolucao(25)} className="mt-2">
+                {mostraSolucao[25] ? "Ocultar Solução" : "Mostrar Solução"}
+              </Button>
+              {mostraSolucao[25] && (
+                <Card.Text className="mt-3 text-muted">
+                  A função é dada por:
+                  <br />
+                  P(t) = 50000 &middot; (1 + 0,04)<sup>t</sup>
+                  <br />
+                  Para 8 anos, t = 8:
+                  <br />
+                  P(8) = 50000 &middot; (1 + 0,04)<sup>8</sup>
+                  <br />
+                  P(8) = 50000 &middot; 1,3686
+                  <br />
+                  P(8) = 68430
+                  <br />
+                  Após 8 anos, a cidade terá uma população prevista de aproximadamente 68.430 habitantes.
                 </Card.Text>
               )}
             </Card.Body>

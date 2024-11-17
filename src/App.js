@@ -19,11 +19,11 @@ function App() {
           <Navbar.Brand as={Link} to="/" className="fw-bold me-auto">
             <HouseFill className="me-2" /> Questões de Matemática
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbar-nav" />
+
           <Navbar.Collapse id="navbar-nav" className="justify-content-end">
             <Nav>
               <Nav.Link as={Link} to="/" active={location.pathname === "/"}>
-                <HouseFill className="me-1" /> Home
+                <HouseFill className="me-1" /> Início
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

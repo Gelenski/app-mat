@@ -9,6 +9,7 @@ const conteudos = [
   { nome: "Cosseno", path: "Cosseno" },
   { nome: "Cotangente, Cossecante, Secante", path: "Cotangente, Cossecante, Secante" },
   { nome: "Conversão de unidade", path: "Conversão de unidade" },
+  { nome: "Função Exponencial", path: "Função Exponencial" },
 ];
 
 const Home = () => (
