@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card, Container, Row, Col } from "react-bootstrap";
 
+
 const conteudos = [
   { nome: "Progressão Geométrica", path: "progressao-geometrica" },
   { nome: "Logaritmo", path: "logaritmo" },
@@ -10,6 +11,7 @@ const conteudos = [
   { nome: "Cotangente, Cossecante, Secante", path: "Cotangente, Cossecante, Secante" },
   { nome: "Conversão de unidade", path: "Conversão de unidade" },
   { nome: "Função Exponencial", path: "Função Exponencial" },
+  {nome: "Calculadora", path:"calculadora"}
 ];
 
 const Home = () => (

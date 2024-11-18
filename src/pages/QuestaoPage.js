@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Card, Button, Container } from "react-bootstrap";
+import Calculator from "../components/Calculadora";
 
 const QuestaoPage = () => {
   const { topico } = useParams();
@@ -736,6 +737,11 @@ const QuestaoPage = () => {
               )}
             </Card.Body>
           </Card>
+        </>
+      )}
+      {topico === "calculadora" && (
+        <>
+          <Calculator/>
         </>
       )}
     </Container>
