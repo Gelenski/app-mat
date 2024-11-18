@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/app-mat/static/css/main.d221dc40.css",
+    "main.js": "/app-mat/static/js/main.7312051a.js",
+    "index.html": "/app-mat/index.html",
+    "main.d221dc40.css.map": "/app-mat/static/css/main.d221dc40.css.map",
+    "main.7312051a.js.map": "/app-mat/static/js/main.7312051a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d221dc40.css",
+    "static/js/main.7312051a.js"
+  ]
+}
