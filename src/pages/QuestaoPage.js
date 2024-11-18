@@ -744,6 +744,55 @@ const QuestaoPage = () => {
           <Calculator/>
         </>
       )}
+      {/* ---------------- Conversâo de unidade -------------------- */}
+      {topico === "Conversão de unidade" && (
+        <>
+          <Card className="mb-3 shadow-sm">
+            <Card.Body>
+              <Card.Title>Uma estrada tem 120 km de comprimento. Um carro viaja por essa estrada a 
+                uma velocidade constante de 80 km/h. Converta essa distância para metros e a velocidade 
+                para metros por segundo (m/s). Em seguida, calcule quanto tempo o carro levará para percorrer 
+                toda a estrada em segundos.</Card.Title>
+              <Button
+                variant="info"
+                onClick={() => toggleSolucao(21)}
+                className="mt-2"
+              >
+                {mostraSolucao[21] ? "Ocultar Solução" : "Mostrar Solução"}
+              </Button>
+              {mostraSolucao[21] && (
+                <Card.Text className="mt-3 text-muted">
+1. Conversão da distância de quilômetros (km) para metros (m):{<br/>}
+
+Sabemos que 1 km = 1.000 m.{<br/>}
+
+120km= 120x1.000 = 120.000m{<br/>}
+
+  2. Conversão da velocidade de quilômetros por hora (km/h) para metros por segundo (m/s):{<br/>}
+ 
+Sabemos que para converter km/h para m/s, dividimos o valor por 3,6, já que 1 km/h = {<br/>}
+
+1.000/3.600m/s{<br/>}
+
+80km/h = 80 / 3,6 = 22,22m/s{<br/>}
+
+3. Cálculo do tempo em segundos:{<br/>}
+
+Sabemos que o tempo é dado pela fórmula:{<br/>}
+
+t = 120.000m / 22,22m/s = 5.400 segundos{<br/>}
+
+Resposta final:{<br/>}
+
+O carro levará aproximadamente 5.400 segundos para percorrer toda a estrada.{<br/>}
+
+                </Card.Text>
+              )}
+            </Card.Body>
+          </Card>
+      
+        </>
+      )}
     </Container>
   );
 };
