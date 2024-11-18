@@ -32,7 +32,7 @@ function App() {
 
       <Container className="mt-5">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/app-mat" element={<Home />} />
           <Route path="/conteudo/:topico" element={<QuestaoPage />} />
         </Routes>
       </Container>
