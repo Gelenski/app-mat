@@ -1,12 +1,30 @@
-import React from "react";
+import {React, useState} from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
 import Home from "./pages/Home";
 import QuestaoPage from "./pages/QuestaoPage.js";
 import { HouseFill } from "react-bootstrap-icons";
 
+const conteudos = [
+  { nome: "Progressão Geométrica", path: "progressao-geometrica" },
+  { nome: "Logaritmo", path: "logaritmo" },
+  { nome: "Soma de PA e PG", path: "Soma de PA e PG" },
+  { nome: "Cosseno", path: "Cosseno" },
+  { nome: "Cotangente, Cossecante, Secante", path: "Cotangente, Cossecante, Secante" },
+  { nome: "Conversão de unidade", path: "Conversão de unidade" },
+  { nome: "Função Exponencial", path: "Função Exponencial" },
+  { nome: "Calculadora", path:"calculadora"}
+];
+
 function App() {
   const location = useLocation();
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
 
   return (
     <div>
@@ -16,7 +34,7 @@ function App() {
       {/* navbar. */}
       <Navbar bg="primary" variant="dark" expand="lg" className="shadow-sm">
         <Container>
-          <Navbar.Brand as={Link} to="/" className="fw-bold me-auto">
+          <Navbar.Brand as={Link} onClick={handleShow} className="fw-bold me-auto">
             <HouseFill className="me-2" /> Questões de Matemática
           </Navbar.Brand>
 
@@ -29,10 +47,24 @@ function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <>
+      {/* Navbar lateral usando Offcanvas */}
+      <Offcanvas show={show} onHide={handleClose} placement="start">
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Menu Lateral</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Nav className="flex-column">
+            {conteudos.map((conteudo)=> (<Nav.Link to={`/conteudo/${conteudo.path}`}>{conteudo.nome}</Nav.Link>))}
+          </Nav>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
 
       <Container className="mt-5">
         <Routes>
           <Route path="/" element={<Home />} />
+          {/* <Route path="/app-mat" element={<Inicio/>}/> */}
           <Route path="/conteudo/:topico" element={<QuestaoPage />} />
         </Routes>
       </Container>
