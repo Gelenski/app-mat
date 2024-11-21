@@ -4,7 +4,6 @@ import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
 import Home from "./pages/Home";
 import QuestaoPage from "./pages/QuestaoPage.js";
 import { HouseFill } from "react-bootstrap-icons";
-import { hover } from "@testing-library/user-event/dist/hover.js";
 
 const conteudos = [
   { nome: "Progressão Geométrica", path: "progressao-geometrica" },
