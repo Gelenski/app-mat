@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Calculator = () => {
   const [display, setDisplay] = useState("");
@@ -49,7 +49,7 @@ const Calculator = () => {
   };
 
   return (
-    <div style={{ maxWidth: '300px', margin: 'auto', textAlign: 'center' }}>
+    <div style={{ maxWidth: "300px", margin: "auto", textAlign: "center" }}>
       <h2>Calculadora</h2>
       <input type="text" value={display} readOnly placeholder="Insira os valores" />
       <br />
@@ -90,21 +90,9 @@ const Calculator = () => {
 
       <h3>Progressões</h3>
       <div>
-        <input
-          type="number"
-          placeholder="Primeiro termo"
-          onChange={(e) => handleButtonClick(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="Razão"
-          onChange={(e) => handleButtonClick(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="Nº de termos"
-          onChange={(e) => handleButtonClick(e.target.value)}
-        />
+        <input type="number" placeholder="Primeiro termo" onChange={(e) => handleButtonClick(e.target.value)} />
+        <input type="number" placeholder="Razão" onChange={(e) => handleButtonClick(e.target.value)} />
+        <input type="number" placeholder="Nº de termos" onChange={(e) => handleButtonClick(e.target.value)} />
         <button onClick={() => calculatePA(1, 2, 5)}>Calcular PA</button>
         <button onClick={() => calculatePG(1, 2, 5)}>Calcular PG</button>
       </div>
