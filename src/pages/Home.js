@@ -2,16 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card, Container, Row, Col } from "react-bootstrap";
 
-
 const conteudos = [
   { nome: "Progressão Geométrica", path: "progressao-geometrica" },
   { nome: "Logaritmo", path: "logaritmo" },
-  { nome: "Soma de PA e PG", path: "Soma de PA e PG" },
-  { nome: "Cosseno", path: "Cosseno" },
-  { nome: "Cotangente, Cossecante, Secante", path: "Cotangente, Cossecante, Secante" },
-  { nome: "Conversão de unidade", path: "Conversão de unidade" },
-  { nome: "Função Exponencial", path: "Função Exponencial" },
-  {nome: "Calculadora", path:"calculadora"}
+  { nome: "Soma de PA e PG", path: "soma-de-pa-e-pg" },
+  { nome: "Cosseno", path: "cosseno" },
+  { nome: "Cotangente, Cossecante, Secante", path: "cotangente-cossecante-secante" },
+  { nome: "Conversão de unidade", path: "conversao-de-unidade" },
+  { nome: "Função Exponencial", path: "funcao-exponencial" },
+  { nome: "Calculadora", path: "calculadora" },
 ];
 
 const Home = () => (

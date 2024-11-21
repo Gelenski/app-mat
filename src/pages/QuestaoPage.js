@@ -3,19 +3,31 @@ import { useParams } from "react-router-dom";
 import { Card, Button, Container } from "react-bootstrap";
 import Calculator from "../components/Calculadora";
 
+const conteudos = [
+  { nome: "Progressão Geométrica", path: "progressao-geometrica" },
+  { nome: "Logaritmo", path: "logaritmo" },
+  { nome: "Soma de PA e PG", path: "soma-de-pa-e-pg" },
+  { nome: "Cosseno", path: "cosseno" },
+  { nome: "Cotangente, Cossecante, Secante", path: "cotangente-cossecante-secante" },
+  { nome: "Conversão de unidade", path: "conversao-de-unidade" },
+  { nome: "Função Exponencial", path: "funcao-exponencial" },
+  { nome: "Calculadora", path: "calculadora" },
+];
+
 const QuestaoPage = () => {
   const { topico } = useParams();
   const [mostraSolucao, setMostraSolucao] = useState({});
+
+  const conteudoAtual = conteudos.find((conteudo) => conteudo.path === topico);
+  const titulo = conteudoAtual ? conteudoAtual.nome : "Tópico não encontrado";
 
   const toggleSolucao = (index) => {
     setMostraSolucao((prev) => ({ ...prev, [index]: !prev[index] }));
   };
 
-  const tituloFormatado = topico.replace("-", " e ");
-
   return (
     <Container>
-      <h2 className="text-center my-4">Questões de {tituloFormatado}</h2>
+      <h2 className="text-center my-4">Questões de {titulo}</h2>
       {/* -------------- progressao aritmetica------------- */}
       {topico === "progressao-geometrica" && (
         <>
@@ -412,7 +424,7 @@ const QuestaoPage = () => {
         </>
       )}{" "}
       {/* ---------------- Soma de PA e PG -------------------- */}
-      {topico === "Soma de PA e PG" && (
+      {topico === "soma-de-pa-e-pg" && (
         <>
           <Card className="mb-3 shadow-sm">
             <Card.Body>
@@ -504,7 +516,7 @@ const QuestaoPage = () => {
         </>
       )}
       {/* ---------------- Cotangente, Cossecante, Secante -------------------- */}
-      {topico === "Cotangente, Cossecante, Secante" && (
+      {topico === "cotangente-cossecante-secante" && (
         <>
           <Card className="mb-3 shadow-sm">
             <Card.Body>
@@ -598,12 +610,12 @@ const QuestaoPage = () => {
         </>
       )}
       {/* ---------------- Função Exponencial -------------------- */}
-      {topico === "Função Exponencial" && (
+      {topico === "funcao-exponencial" && (
         <>
           <Card className="mb-3 shadow-sm">
             <Card.Body>
               <Card.Title>
-                1. Uma população de bactérias cresce exponencialmente de acordo com a função 𝑃 ( 𝑡 ) = 200 ⋅ 2 𝑡
+                1. Uma população de bactérias cresce exponencialmente de acordo com a função 𝑃 (𝑡) = 200 ⋅ 2 𝑡
                 P(t)=200⋅2 t , onde 𝑡 t é o tempo em horas. <br />
                 Qual será a população de bactérias após 3 horas?
               </Card.Title>
@@ -741,56 +753,39 @@ const QuestaoPage = () => {
       )}
       {topico === "calculadora" && (
         <>
-          <Calculator/>
+          <Calculator />
         </>
       )}
       {/* ---------------- Conversâo de unidade -------------------- */}
-      {topico === "Conversão de unidade" && (
+      {topico === "conversao-de-unidade" && (
         <>
           <Card className="mb-3 shadow-sm">
             <Card.Body>
-              <Card.Title>Uma estrada tem 120 km de comprimento. Um carro viaja por essa estrada a 
-                uma velocidade constante de 80 km/h. Converta essa distância para metros e a velocidade 
-                para metros por segundo (m/s). Em seguida, calcule quanto tempo o carro levará para percorrer 
-                toda a estrada em segundos.</Card.Title>
-              <Button
-                variant="info"
-                onClick={() => toggleSolucao(21)}
-                className="mt-2"
-              >
+              <Card.Title>
+                Uma estrada tem 120 km de comprimento. Um carro viaja por essa estrada a uma velocidade constante de 80
+                km/h. Converta essa distância para metros e a velocidade para metros por segundo (m/s). Em seguida,
+                calcule quanto tempo o carro levará para percorrer toda a estrada em segundos.
+              </Card.Title>
+              <Button variant="info" onClick={() => toggleSolucao(21)} className="mt-2">
                 {mostraSolucao[21] ? "Ocultar Solução" : "Mostrar Solução"}
               </Button>
               {mostraSolucao[21] && (
                 <Card.Text className="mt-3 text-muted">
-1. Conversão da distância de quilômetros (km) para metros (m):{<br/>}
-
-Sabemos que 1 km = 1.000 m.{<br/>}
-
-120km= 120x1.000 = 120.000m{<br/>}
-
-  2. Conversão da velocidade de quilômetros por hora (km/h) para metros por segundo (m/s):{<br/>}
- 
-Sabemos que para converter km/h para m/s, dividimos o valor por 3,6, já que 1 km/h = {<br/>}
-
-1.000/3.600m/s{<br/>}
-
-80km/h = 80 / 3,6 = 22,22m/s{<br/>}
-
-3. Cálculo do tempo em segundos:{<br/>}
-
-Sabemos que o tempo é dado pela fórmula:{<br/>}
-
-t = 120.000m / 22,22m/s = 5.400 segundos{<br/>}
-
-Resposta final:{<br/>}
-
-O carro levará aproximadamente 5.400 segundos para percorrer toda a estrada.{<br/>}
-
+                  1. Conversão da distância de quilômetros (km) para metros (m):{<br />}
+                  Sabemos que 1 km = 1.000 m.{<br />}
+                  120km= 120x1.000 = 120.000m{<br />}
+                  2. Conversão da velocidade de quilômetros por hora (km/h) para metros por segundo (m/s):{<br />}
+                  Sabemos que para converter km/h para m/s, dividimos o valor por 3,6, já que 1 km/h = {<br />}
+                  1.000/3.600m/s{<br />}
+                  80km/h = 80 / 3,6 = 22,22m/s{<br />}
+                  3. Cálculo do tempo em segundos:{<br />}
+                  Sabemos que o tempo é dado pela fórmula:{<br />}t = 120.000m / 22,22m/s = 5.400 segundos{<br />}
+                  Resposta final:{<br />}O carro levará aproximadamente 5.400 segundos para percorrer toda a estrada.
+                  {<br />}
                 </Card.Text>
               )}
             </Card.Body>
           </Card>
-      
         </>
       )}
     </Container>

@@ -1,104 +1,254 @@
 import React, { useState } from "react";
+import { Button, Container, Row, Col, Form, Card, InputGroup, FormControl } from "react-bootstrap";
 
 const Calculator = () => {
-  const [display, setDisplay] = useState("");
+  const [input, setInput] = useState("");
   const [result, setResult] = useState("");
+  const [firstTerm, setFirstTerm] = useState("");
+  const [ratio, setRatio] = useState("");
+  const [numTerms, setNumTerms] = useState("");
+  const [progResult, setProgResult] = useState("");
+  const [angle, setAngle] = useState("");
+  const [trigResult, setTrigResult] = useState("");
 
-  const handleButtonClick = (value) => {
-    setDisplay(display + value);
+  const handleInput = (value) => {
+    setInput(input + value);
   };
 
-  const calculateBasic = () => {
+  const handleClear = () => {
+    setInput("");
+    setResult("");
+  };
+
+  const handleEvaluate = () => {
     try {
-      setResult(eval(display));
-    } catch (error) {
+      setResult(eval(input).toString());
+    } catch (e) {
       setResult("Erro");
     }
   };
 
-  const clearDisplay = () => {
-    setDisplay("");
-    setResult("");
+  const calculatePA = () => {
+    const first = parseFloat(firstTerm);
+    const ratioVal = parseFloat(ratio);
+    const num = parseInt(numTerms);
+    if (!isNaN(first) && !isNaN(ratioVal) && !isNaN(num)) {
+      let terms = [];
+      for (let i = 0; i < num; i++) {
+        terms.push(first + i * ratioVal);
+      }
+      setProgResult(terms.join(", "));
+    } else {
+      setProgResult("Erro");
+    }
   };
 
-  const calculatePG = (initialTerm, ratio, numTerms) => {
-    const terms = Array.from({ length: numTerms }, (_, i) => initialTerm * Math.pow(ratio, i));
-    setResult(terms.join(", "));
+  const calculatePG = () => {
+    const first = parseFloat(firstTerm);
+    const ratioVal = parseFloat(ratio);
+    const num = parseInt(numTerms);
+    if (!isNaN(first) && !isNaN(ratioVal) && !isNaN(num)) {
+      let terms = [];
+      for (let i = 0; i < num; i++) {
+        terms.push(first * Math.pow(ratioVal, i));
+      }
+      setProgResult(terms.join(", "));
+    } else {
+      setProgResult("Erro");
+    }
   };
 
-  const calculatePA = (initialTerm, ratio, numTerms) => {
-    const terms = Array.from({ length: numTerms }, (_, i) => initialTerm + ratio * i);
-    setResult(terms.join(", "));
-  };
-
-  const calculateTrigFunction = (func) => {
-    const radians = parseFloat(display) * (Math.PI / 180); // Converte para radianos
-    switch (func) {
-      case "sin":
-        setResult(Math.sin(radians));
-        break;
-      case "cos":
-        setResult(Math.cos(radians));
-        break;
-      case "tan":
-        setResult(Math.tan(radians));
-        break;
-      default:
-        setResult("Erro");
+  const calculateTrig = (func) => {
+    const angleInRadians = (parseFloat(angle) * Math.PI) / 180;
+    if (!isNaN(angleInRadians)) {
+      let result = 0;
+      switch (func) {
+        case "sin":
+          result = Math.sin(angleInRadians);
+          break;
+        case "cos":
+          result = Math.cos(angleInRadians);
+          break;
+        case "tan":
+          result = Math.tan(angleInRadians);
+          break;
+        default:
+          result = "Erro";
+      }
+      setTrigResult(result.toFixed(4));
+    } else {
+      setTrigResult("Erro");
     }
   };
 
   return (
-    <div style={{ maxWidth: "300px", margin: "auto", textAlign: "center" }}>
-      <h2>Calculadora</h2>
-      <input type="text" value={display} readOnly placeholder="Insira os valores" />
-      <br />
-      <div>
-        <button onClick={() => handleButtonClick("1")}>1</button>
-        <button onClick={() => handleButtonClick("2")}>2</button>
-        <button onClick={() => handleButtonClick("3")}>3</button>
-        <button onClick={() => handleButtonClick("+")}>+</button>
-      </div>
-      <div>
-        <button onClick={() => handleButtonClick("4")}>4</button>
-        <button onClick={() => handleButtonClick("5")}>5</button>
-        <button onClick={() => handleButtonClick("6")}>6</button>
-        <button onClick={() => handleButtonClick("-")}>-</button>
-      </div>
-      <div>
-        <button onClick={() => handleButtonClick("7")}>7</button>
-        <button onClick={() => handleButtonClick("8")}>8</button>
-        <button onClick={() => handleButtonClick("9")}>9</button>
-        <button onClick={() => handleButtonClick("*")}>*</button>
-      </div>
-      <div>
-        <button onClick={() => handleButtonClick("0")}>0</button>
-        <button onClick={() => handleButtonClick(".")}>.</button>
-        <button onClick={calculateBasic}>=</button>
-        <button onClick={() => handleButtonClick("/")}>/</button>
-      </div>
-      <div>
-        <button onClick={clearDisplay}>C</button>
-      </div>
+    <Container>
+      <Card className="mt-4">
+        <Card.Body>
+          <Row className="mb-4">
+            <Col>
+              <h2 className="text-center">Calculadora</h2>
+              <InputGroup className="mb-3">
+                <FormControl
+                  placeholder="Insira a expressão"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                />
+              </InputGroup>
+              <h4>Resultado: {result}</h4>
+            </Col>
+          </Row>
 
-      <h3>Funções Trigonométricas</h3>
-      <div>
-        <button onClick={() => calculateTrigFunction("sin")}>sin</button>
-        <button onClick={() => calculateTrigFunction("cos")}>cos</button>
-        <button onClick={() => calculateTrigFunction("tan")}>tan</button>
-      </div>
+          {/* Seção de Botões de Operações Básicas */}
+          <Row className="mb-4">
+            <Col xs={2} className="d-flex justify-content-center mb-2">
+              <Button variant="secondary" onClick={() => handleInput("1")}>
+                1
+              </Button>
+            </Col>
+            <Col xs={2} className="d-flex justify-content-center mb-2">
+              <Button variant="secondary" onClick={() => handleInput("2")}>
+                2
+              </Button>
+            </Col>
+            <Col xs={2} className="d-flex justify-content-center mb-2">
+              <Button variant="secondary" onClick={() => handleInput("3")}>
+                3
+              </Button>
+            </Col>
+            <Col xs={2} className="d-flex justify-content-center mb-2">
+              <Button variant="secondary" onClick={() => handleInput("+")}>
+                +
+              </Button>
+            </Col>
+          </Row>
+          <Row className="mb-4">
+            <Col xs={2} className="d-flex justify-content-center mb-2">
+              <Button variant="secondary" onClick={() => handleInput("4")}>
+                4
+              </Button>
+            </Col>
+            <Col xs={2} className="d-flex justify-content-center mb-2">
+              <Button variant="secondary" onClick={() => handleInput("5")}>
+                5
+              </Button>
+            </Col>
+            <Col xs={2} className="d-flex justify-content-center mb-2">
+              <Button variant="secondary" onClick={() => handleInput("6")}>
+                6
+              </Button>
+            </Col>
+            <Col xs={2} className="d-flex justify-content-center mb-2">
+              <Button variant="secondary" onClick={() => handleInput("-")}>
+                -
+              </Button>
+            </Col>
+          </Row>
+          <Row className="mb-4">
+            <Col xs={2} className="d-flex justify-content-center mb-2">
+              <Button variant="secondary" onClick={() => handleInput("7")}>
+                7
+              </Button>
+            </Col>
+            <Col xs={2} className="d-flex justify-content-center mb-2">
+              <Button variant="secondary" onClick={() => handleInput("8")}>
+                8
+              </Button>
+            </Col>
+            <Col xs={2} className="d-flex justify-content-center mb-2">
+              <Button variant="secondary" onClick={() => handleInput("9")}>
+                9
+              </Button>
+            </Col>
+            <Col xs={2} className="d-flex justify-content-center mb-2">
+              <Button variant="secondary" onClick={() => handleInput("*")}>
+                *
+              </Button>
+            </Col>
+          </Row>
+          <Row className="mb-4">
+            <Col xs={2} className="d-flex justify-content-center mb-2">
+              <Button variant="secondary" onClick={() => handleInput("0")}>
+                0
+              </Button>
+            </Col>
+            <Col xs={2} className="d-flex justify-content-center mb-2">
+              <Button variant="secondary" onClick={() => handleInput(".")}>
+                .
+              </Button>
+            </Col>
+            <Col xs={2} className="d-flex justify-content-center mb-2">
+              <Button variant="danger" onClick={handleClear}>
+                C
+              </Button>
+            </Col>
+            <Col xs={2} className="d-flex justify-content-center mb-2">
+              <Button variant="secondary" onClick={() => handleInput("/")}>
+                /
+              </Button>
+            </Col>
+          </Row>
+          <Row className="mb-4">
+            <Col xs={12} className="d-flex justify-content-center mb-2">
+              <Button variant="primary" onClick={handleEvaluate} style={{ width: "100%" }}>
+                =
+              </Button>
+            </Col>
+          </Row>
 
-      <h3>Progressões</h3>
-      <div>
-        <input type="number" placeholder="Primeiro termo" onChange={(e) => handleButtonClick(e.target.value)} />
-        <input type="number" placeholder="Razão" onChange={(e) => handleButtonClick(e.target.value)} />
-        <input type="number" placeholder="Nº de termos" onChange={(e) => handleButtonClick(e.target.value)} />
-        <button onClick={() => calculatePA(1, 2, 5)}>Calcular PA</button>
-        <button onClick={() => calculatePG(1, 2, 5)}>Calcular PG</button>
-      </div>
+          {/* Seção de Progressões */}
+          <Row className="mb-4">
+            <Col xs={12} md={6}>
+              <h4>Progressões</h4>
+              <Form>
+                <Form.Group>
+                  <Form.Label>Primeiro Termo</Form.Label>
+                  <Form.Control type="number" value={firstTerm} onChange={(e) => setFirstTerm(e.target.value)} />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Razão</Form.Label>
+                  <Form.Control type="number" value={ratio} onChange={(e) => setRatio(e.target.value)} />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Número de Termos</Form.Label>
+                  <Form.Control type="number" value={numTerms} onChange={(e) => setNumTerms(e.target.value)} />
+                </Form.Group>
+                <Button variant="success" onClick={calculatePA}>
+                  Calcular PA
+                </Button>
+                <Button variant="success" onClick={calculatePG}>
+                  Calcular PG
+                </Button>
+              </Form>
+              <h5>Resultado: {progResult}</h5>
+            </Col>
+          </Row>
 
-      <h3>Resultado: {result}</h3>
-    </div>
+          {/* Seção de Funções Trigonométricas */}
+          <Row className="mb-4">
+            <Col xs={12} md={6}>
+              <h4>Funções Trigonométricas</h4>
+              <Form>
+                <Form.Group>
+                  <Form.Label>Ângulo (em graus)</Form.Label>
+                  <Form.Control type="number" value={angle} onChange={(e) => setAngle(e.target.value)} />
+                </Form.Group>
+                <Button variant="info" onClick={() => calculateTrig("sin")}>
+                  Seno
+                </Button>
+                <Button variant="info" onClick={() => calculateTrig("cos")}>
+                  Cosseno
+                </Button>
+                <Button variant="info" onClick={() => calculateTrig("tan")}>
+                  Tangente
+                </Button>
+              </Form>
+              <h5>Resultado: {trigResult}</h5>
+            </Col>
+          </Row>
+        </Card.Body>
+      </Card>
+    </Container>
   );
 };
 

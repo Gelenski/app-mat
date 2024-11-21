@@ -4,6 +4,7 @@ import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
 import Home from "./pages/Home";
 import QuestaoPage from "./pages/QuestaoPage.js";
 import { HouseFill } from "react-bootstrap-icons";
+import { hover } from "@testing-library/user-event/dist/hover.js";
 
 const conteudos = [
   { nome: "Progressão Geométrica", path: "progressao-geometrica" },
@@ -56,13 +57,13 @@ function App() {
       {/* Navbar */}
       <Navbar bg="primary" variant="dark" expand="lg" className="shadow-sm">
         <Container>
-          <Navbar.Brand onClick={handleShow} className="fw-bold me-auto">
-            <HouseFill className="me-2" /> Questões de Matemática
+          <Navbar.Brand onClick={handleShow} className="fw-bold me-auto" style={{ cursor: "pointer" }}>
+            <HouseFill className="me-2" />
+            Questões de Matemática
           </Navbar.Brand>
-
           <Navbar.Collapse id="navbar-nav" className="justify-content-end">
             <Nav>
-              <Nav.Link as={Link} to="/" active={location.pathname === "/"}>
+              <Nav.Link as={Link} to="/app-mat" active={location.pathname === "/"}>
                 <HouseFill className="me-1" /> Início
               </Nav.Link>
             </Nav>
